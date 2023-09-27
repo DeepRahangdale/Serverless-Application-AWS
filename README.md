@@ -254,3 +254,23 @@ In this step, you deploy the API that you created to a stage called DEV.
 3. We're all set to run our solution! To invoke our API endpoint, we need the endpoint url. In the "Stages" screen, expand the stage "Dev", select "GET" method, and copy the "Invoke URL" from screen
 
 ![Copy Invoke Url](./images/copy-invoke-url.jpg)
+
+
+## Cleanup
+
+Let's clean up the resources we have created for this lab.
+
+
+### Cleaning up DynamoDB
+
+To delete the table, from DynamoDB console, select the table "UsersTable", and click "Delete table"
+
+![Delete Dynamo](./images/delete-dynamo.png)
+
+To delete the Lambda, from the Lambda console, select lambda "togetallusers", click "Actions", then click Delete 
+
+![Delete Lambda](./images/delete-lambda.png)
+
+To delete the API we created, in API gateway console, under APIs, select "DynamoDBOperations" API, click "Actions", then "Delete"
+
+![Delete API](./images/delete-api.png)
