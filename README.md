@@ -137,7 +137,7 @@ To create an execution role
    
 ![Create lambda integration](./images/create-lambda.jpg)
 
-2. Use name "togetallusera". Then Under Permissions, select "Use an existing role", and select "getUsers" role that we created, from the drop down and, Select "node.js 14.x" as Runtime.
+2. Use name "togetallusers". Then Under Permissions, select "Use an existing role", and select "getUsers" role that we created, from the drop down and, Select "node.js 14.x" as Runtime.
 
 ![Create lambda integration](./images/createlambda.png)
 
