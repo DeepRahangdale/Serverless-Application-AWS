@@ -43,7 +43,7 @@ The application focuses on solving a practical problem: managing and interacting
 
 ## Setup
 
-### Setting S3 Bucket and Deploying Static Site
+### Creating S3 Bucket and Deploying Static Site
 
 #### Step 1: Create your first S3 bucket
 
@@ -101,4 +101,9 @@ The bucket policy, written in JSON, provides access to the objects stored in the
 6. Under Static website hosting, choose Enable.
 7. In Index document, enter the file name of the index document, typically index.html.
 8. Under Static website hosting, note the Endpoint.
+
+### Create API
+
+![High Level Design](./images/New-API.png)
+
 
