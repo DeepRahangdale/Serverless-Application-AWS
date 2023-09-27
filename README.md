@@ -167,4 +167,35 @@ To create an execution role
 
 ![Create lambda integration](./images/createlambda.png)
 
-4. Click "Create Function". 
+3. Click "Create Function".
+
+4. Replace the boilerplate coding with the following code snippet and click "Save"
+
+```javascript
+const AWS = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient();
+
+const params ={
+    TableName: 'UsersTable'
+}
+
+const listItems = async() => {
+    try{
+        const data = await docClient.scan(params).promise()
+        return data;
+        
+    } catch(error) {
+        return error;
+    }
+}
+
+exports.handler = async (event, context) => {
+    try {
+        const data = await listItems();
+        return { body: JSON.stringify(data) }
+    } catch(error) {
+        return {error: error}
+    }
+
+};
+```
