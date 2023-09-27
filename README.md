@@ -5,7 +5,7 @@
 Let's start with the High Level Design.
 ![High Level Design](./images/high-level-design.jpg)
 
-An Amazon API Gateway is a collection of resources and methods. For this tutorial, We will create a Serverless Full Stack Application( Serverless Full Stack Application is a modern and scalable web application) where using React.js and Material UI for the frontend, Node.js on AWS Lambda for the backend, and DynamoDB for data storage. The application's main feature is to display data from a DynamoDB table in a user-friendly web interface and provide a "Remove" button to delete selected records. Users can interact with the data and remove items as needed, creating a simple but practical web application.
+An Amazon API Gateway is a collection of resources and methods.For this tutorial, We will create a Serverless Full Stack Application where we will be using React.js and Material UI for the frontend, Node.js on AWS Lambda for the backend, and DynamoDB for data storage. The application's main feature is to display data from a DynamoDB table in a user-friendly web interface and provide a "Remove" button to delete selected records. Users can interact with the data and remove items as needed, creating a simple but practical web application.
 
 ![High Level Design](./images/Serverless_Web_App.png)
 
@@ -156,4 +156,46 @@ To create an execution role
 }
 ```
 
+### Create Lambda Function
 
+**To create the Function**
+1. Click "Create Function" in AWS Lambda Console.
+   
+![Create lambda integration](./images/create-lambda.jpg)
+
+2. Select "Create a new Role from AWS Policy templates".Select "nodejs14.x" as Runtime.
+
+![Create lambda integration](./images/createlambda.png)
+
+3. Click "Create Function".
+
+4. Replace the boilerplate coding with the following code snippet and click "Save"
+
+```javascript
+const AWS = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient();
+
+const params ={
+    TableName: 'UsersTable'
+}
+
+const listItems = async() => {
+    try{
+        const data = await docClient.scan(params).promise()
+        return data;
+        
+    } catch(error) {
+        return error;
+    }
+}
+
+exports.handler = async (event, context) => {
+    try {
+        const data = await listItems();
+        return { body: JSON.stringify(data) }
+    } catch(error) {
+        return {error: error}
+    }
+
+};
+```
