@@ -137,9 +137,7 @@ To create an execution role
    
 ![Create lambda integration](./images/create-lambda.jpg)
 
-2. Use name "togetallusera". Then Under Permissions, select "Use an existing role", and select "getUsers" role that we created, from the drop down
-
- and, Select "node.js 14.x" as Runtime.
+2. Use name "togetallusera". Then Under Permissions, select "Use an existing role", and select "getUsers" role that we created, from the drop down and, Select "node.js 14.x" as Runtime.
 
 ![Create lambda integration](./images/createlambda.png)
 
@@ -274,6 +272,6 @@ Let's clean up the resources we have created for this lab.
 
 ![Delete Lambda](./images/delete-lambda.png)
 
-* To delete the API we created, in API gateway console, under APIs, select "DynamoDBOperations" API, click "Actions", then "Delete"
+* To delete the API we created, in API gateway console, under APIs, select "users api" API, click "Actions", then "Delete"
 
 ![Delete API](./images/delete-api.png)
