@@ -156,4 +156,15 @@ To create an execution role
 }
 ```
 
+### Create Lambda Function
 
+**To create the Function**
+1. Click "Create Function" in AWS Lambda Console.
+   
+![Create lambda integration](./images/create-lambda.jpg)
+
+2. Select "Create a new Role from AWS Policy templates".Select "nodejs14.x" as Runtime.
+
+![Create lambda integration](./images/createlambda.png)
+
+4. Click "Create Function". 
