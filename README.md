@@ -1,6 +1,6 @@
-# LevelUp! Lab for Serverless
+# LevelUp! Serverless Application
 
-## Lab Overview And High Level Design
+## Overview And High Level Design
 
 Let's start with the High Level Design.
 ![High Level Design](./images/high-level-design.jpg)
@@ -102,32 +102,6 @@ The bucket policy, written in JSON, provides access to the objects stored in the
 7. In Index document, enter the file name of the index document, typically index.html.
 8. Under Static website hosting, note the Endpoint.
 
-### Create API Gateway
-![High Level Design](./images/New-API.png)
-
-**To create the API**
-1. Go to API Gateway console
-2. Click Create API
-
-![create API](./images/create-api-button.jpg) 
-
-3. Scroll down and select "Build" for REST API
-
-![Build REST API](./images/build-rest-api.jpg) 
-
-4. Give the API name as "userapi", keep everything as is, click "Create API"
-
-![Create REST API](./images/create-new-api.jpg)
-
-5. Let's create a GET Method for our API. With the "/userapi" resource selected, Click "Actions" again and click "Create Method". 
-
-![Create resource method](./images/create-method-1.jpg)
-
-6. The integration will come up automatically with "Lambda Function" option selected. As you start typing the name, your function name will show up.Select and click "Save". A popup window will come up to add resource policy to the lambda to be invoked by this API. Click "Ok"
-
-![Create lambda integration](./images/create-lambda-integration.jpg)
-
-Our API-Lambda integration is done!
 
 ### Create Lambda IAM Role 
 Create the execution role that gives your function permission to access AWS resources.
@@ -163,7 +137,7 @@ To create an execution role
    
 ![Create lambda integration](./images/create-lambda.jpg)
 
-2. Select "Create a new Role from AWS Policy templates".Select "nodejs14.x" as Runtime.
+2. Use name "togetallusera". Then Under Permissions, select "Use an existing role", and select "getUsers" role that we created, from the drop down and, Select "node.js 14.x" as Runtime.
 
 ![Create lambda integration](./images/createlambda.png)
 
@@ -239,6 +213,33 @@ Create the DynamoDB table that the Lambda function uses.
 
 ![create DynamoDB table](./images/create-dynamo-table.jpg)
 
+### Create API Gateway
+![High Level Design](./images/New-API.png)
+
+**To create the API**
+1. Go to API Gateway console
+2. Click Create API
+
+![create API](./images/create-api-button.jpg) 
+
+3. Scroll down and select "Build" for REST API
+
+![Build REST API](./images/build-rest-api.jpg) 
+
+4. Give the API name as "userapi", keep everything as is, click "Create API"
+
+![Create REST API](./images/create-new-api.jpg)
+
+5. Let's create a GET Method for our API. With the "/userapi" resource selected, Click "Actions" again and click "Create Method". 
+
+![Create resource method](./images/create-method-1.jpg)
+
+6. The integration will come up automatically with "Lambda Function" option selected. As you start typing the name, your function name will show up.Select and click "Save". A popup window will come up to add resource policy to the lambda to be invoked by this API. Click "Ok"
+
+![Create lambda integration](./images/create-lambda-integration.jpg)
+
+Our API-Lambda integration is done!
+
 ### Deploy the API
 
 In this step, you deploy the API that you created to a stage called DEV.
@@ -255,22 +256,52 @@ In this step, you deploy the API that you created to a stage called DEV.
 
 ![Copy Invoke Url](./images/copy-invoke-url.jpg)
 
+### Running our solution
+
+1. Create and Deploy the AWS Resources:
+* Set up your DynamoDB API Gateway and AWS Lambda functions with the necessary code.To add an item to your DynamoDB table, Items with different parameters can be created under "Create Item" Section.
+
+```json
+{
+    "operation": "create",
+    "tableName": "YourTableName",
+    "payload": {
+        "Item": {
+            "id": "YourItemID",
+            "attribute": "AttributeData"
+        }
+    }
+}
+```
+2. Verify Data in DynamoDB:
+
+To ensure that the item is successfully inserted into your DynamoDB table, go to the AWS DynamoDB console:
+* Select your table (e.g., "YourTableName").
+* Click on the "Items" tab, and you should see the newly inserted item listed.
+
+![Running Solution](./images/running solution.png)
+
+3. Run Your Serverless Full Stack Application:
+
+* Launch your React.js frontend application that interacts with the API you've created. Ensure your frontend is configured to make requests to the correct API endpoints and display data appropriately.
+
+![Output](./images/output.png)
 
 ## Cleanup
 
 Let's clean up the resources we have created for this lab.
 
 
-### Cleaning up DynamoDB
+### Cleaning up DynamoDB, Lambda and API Gateway
 
-To delete the table, from DynamoDB console, select the table "UsersTable", and click "Delete table"
+* To delete the table, from DynamoDB console, select the table "UsersTable", and click "Delete table"
 
 ![Delete Dynamo](./images/delete-dynamo.png)
 
-To delete the Lambda, from the Lambda console, select lambda "togetallusers", click "Actions", then click Delete 
+* To delete the Lambda, from the Lambda console, select lambda "togetallusers", click "Actions", then click Delete 
 
 ![Delete Lambda](./images/delete-lambda.png)
 
-To delete the API we created, in API gateway console, under APIs, select "DynamoDBOperations" API, click "Actions", then "Delete"
+* To delete the API we created, in API gateway console, under APIs, select "users api" API, click "Actions", then "Delete"
 
 ![Delete API](./images/delete-api.png)
