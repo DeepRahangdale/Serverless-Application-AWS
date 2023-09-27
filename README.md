@@ -102,8 +102,32 @@ The bucket policy, written in JSON, provides access to the objects stored in the
 7. In Index document, enter the file name of the index document, typically index.html.
 8. Under Static website hosting, note the Endpoint.
 
-### Create API
+### Create API Gateway
 
 ![High Level Design](./images/New-API.png)
+
+**To create the API**
+1. Go to API Gateway console
+2. Click Create API
+
+![create API](./images/create-api-button.jpg) 
+
+3. Scroll down and select "Build" for REST API
+
+![Build REST API](./images/build-rest-api.jpg) 
+
+4. Give the API name as "userapi", keep everything as is, click "Create API"
+
+![Create REST API](./images/create-new-api.jpg)
+
+5. Let's create a GET Method for our API. With the "/userapi" resource selected, Click "Actions" again and click "Create Method". 
+
+![Create resource method](./images/create-method-1.jpg)
+
+6. The integration will come up automatically with "Lambda Function" option selected. As you start typing the name, your function name will show up.Select and click "Save". A popup window will come up to add resource policy to the lambda to be invoked by this API. Click "Ok"
+
+![Create lambda integration](./images/create-lambda-integration.jpg)
+
+Our API-Lambda integration is done!
 
 
