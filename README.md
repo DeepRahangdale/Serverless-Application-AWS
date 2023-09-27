@@ -256,6 +256,12 @@ In this step, you deploy the API that you created to a stage called DEV.
 
 ![Copy Invoke Url](./images/copy-invoke-url.jpg)
 
+### Running our solution
+
+1. Create and Deploy the AWS Resources:
+Set up your DynamoDB API Gateway and AWS Lambda functions with the necessary code.To add an item to your DynamoDB table, Items with different parameters can be created under "Create Item" Section.
+
+![Running Solution](./images/running solution.png)
 
 ## Cleanup
 
