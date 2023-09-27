@@ -64,3 +64,30 @@ The application focuses on solving a practical problem: managing and interacting
 
 ![High Level Design](./images/uploadinS3.png)
 
+#### Step 3: Allowing Required Permissions
+*In Bucket Policy
+The bucket policy, written in JSON, provides access to the objects stored in the bucket. Bucket policies don't apply to objects owned by other accounts
+ ```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObjectAcl",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::users-processing-serverless/*",
+                "arn:aws:s3:::users-processing-serverless"
+            ]
+        }
+    ]
+}
+```
+
