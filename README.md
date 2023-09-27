@@ -199,3 +199,27 @@ exports.handler = async (event, context) => {
 
 };
 ```
+### Test Lambda Function
+
+Let's test our newly created function. We haven't created DynamoDB and the API yet, so we'll do a sample echo operation. The function should output whatever input we pass.
+1. Click the arrow on "Select a test event" and click "Configure test events".
+
+![Configure test events](./images/lambda-test-event-create.jpg)
+
+2. Paste the following JSON into the event. The field "operation" dictates what the lambda function will perform. In this case, it'd simply return the payload from input event as output. Click "Create" to save
+```json
+{
+    "operation": "echo",
+    "payload": {
+        "somekey1": "somevalue1",
+        "somekey2": "somevalue2"
+    }
+}
+```
+![Save test event](./images/save-test-event.jpg)
+
+3. Click "Test", and it will execute the test event. You should see the output in the console
+
+![Execute test event](./images/execute-test.jpg)
+
+We're all set to create DynamoDB table and an API using our lambda as backend!
