@@ -139,8 +139,9 @@ To create an execution role
 3. Create a role with the following properties.
     * Trusted entity – Lambda.
     * Role name – **getUsers**.
-    * Permissions – Custom policy with permission to DynamoDB and CloudWatch Logs. This custom policy has the permissions that  the function needs to write data to DynamoDB and upload logs. 
-    ```json
+    * Permissions – Custom policy with permission to DynamoDB and CloudWatch Logs. This custom policy has the permissions that  the function needs to write data to DynamoDB and upload logs.
+ 
+ ```json
     {
     "Version": "2012-10-17",
     "Statement": [
