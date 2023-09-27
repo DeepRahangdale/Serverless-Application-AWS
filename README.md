@@ -43,6 +43,7 @@ The application focuses on solving a practical problem: managing and interacting
 
 ## Setup
 
+
 ### Creating S3 Bucket and Deploying Static Site
 
 #### Step 1: Create your first S3 bucket
@@ -103,6 +104,7 @@ The bucket policy, written in JSON, provides access to the objects stored in the
 8. Under Static website hosting, note the Endpoint.
 
 
+
 ### Create Lambda IAM Role 
 Create the execution role that gives your function permission to access AWS resources.
 
@@ -129,6 +131,7 @@ To create an execution role
     ]
 }
 ```
+
 
 ### Create Lambda Function
 
@@ -173,6 +176,7 @@ exports.handler = async (event, context) => {
 
 };
 ```
+
 ### Test Lambda Function
 
 Let's test our newly created function. We haven't created DynamoDB and the API yet, so we'll do a sample echo operation. The function should output whatever input we pass.
@@ -198,6 +202,7 @@ Let's test our newly created function. We haven't created DynamoDB and the API y
 
 We're all set to create DynamoDB table and an API using our lambda as backend!
 
+
 ### Create DynamoDB Table
 
 Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale. DynamoDB offers built-in security, continuous backups, automated multi-Region replication, in-memory caching, and data import and export tools.Create the DynamoDB table that the Lambda function uses.
@@ -212,6 +217,7 @@ Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designe
 4. Choose Create.
 
 ![create DynamoDB table](./images/create-dynamo-table.jpg)
+
 
 ### Create API Gateway
 
@@ -243,6 +249,7 @@ Amazon API Gateway is a fully managed service that makes it easy for developers 
 
 Our API-Lambda integration is done!
 
+
 ### Deploy the API
 
 In this step, you deploy the API that you created to a stage called DEV.
@@ -258,6 +265,7 @@ In this step, you deploy the API that you created to a stage called DEV.
 3. We're all set to run our solution! To invoke our API endpoint, we need the endpoint url. In the "Stages" screen, expand the stage "Dev", select "GET" method, and copy the "Invoke URL" from screen
 
 ![Copy Invoke Url](./images/copy-invoke-url.jpg)
+
 
 ### Running our solution
 
@@ -288,6 +296,7 @@ In this step, you deploy the API that you created to a stage called DEV.
 * Launch your React.js frontend application that interacts with the API you've created. Ensure your frontend is configured to make requests to the correct API endpoints and display data appropriately.
 
 ![Output](./images/output.png)
+
 
 ## Cleanup
 
