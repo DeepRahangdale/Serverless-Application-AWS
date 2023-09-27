@@ -238,3 +238,19 @@ Create the DynamoDB table that the Lambda function uses.
 4. Choose Create.
 
 ![create DynamoDB table](./images/create-dynamo-table.jpg)
+
+### Deploy the API
+
+In this step, you deploy the API that you created to a stage called DEV.
+
+1. Click "Actions", select "Deploy API"
+
+![Deploy API](./images/deploy-api-1.jpg)
+
+2. Now it is going to ask you about a stage. Select "[New Stage]" for "Deployment stage". Give "Dev" as "Stage name". Click "Deploy"
+
+![Deploy API to Prod Stage](./images/deploy-api-2.jpg)
+
+3. We're all set to run our solution! To invoke our API endpoint, we need the endpoint url. In the "Stages" screen, expand the stage "Dev", select "GET" method, and copy the "Invoke URL" from screen
+
+![Copy Invoke Url](./images/copy-invoke-url.jpg)
