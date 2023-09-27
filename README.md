@@ -43,3 +43,62 @@ The application focuses on solving a practical problem: managing and interacting
 
 ## Setup
 
+### Setting S3 Bucket and Deploying Static Site
+
+#### Step 1: Create your first S3 bucket
+
+1. Sign in to the AWS Management Console and open the Amazon S3 console at https://console.aws.amazon.com/s3/.
+2. In the left navigation pane, choose Buckets.
+3. Choose Create bucket.The Create bucket page opens.
+4. For Bucket name, enter a name for your bucket.
+5. For Region, choose the AWS Region where you want the bucket to reside
+
+#### Step 2: Upload an object to your bucket
+
+1. Open the Amazon S3 console at https://console.aws.amazon.com/s3/.
+2. In the Buckets list, choose the name of the bucket that you want to upload your object to.
+3. On the Objects tab for your bucket, choose Upload.
+4. Under Files and folders, choose Add files.
+5. Choose a file to upload, and then choose Open.
+6. Choose Upload.
+
+![High Level Design](./images/uploadinS3.png)
+
+#### Step 3: Allowing Required Permissions
+* In Bucket Policy -
+The bucket policy, written in JSON, provides access to the objects stored in the bucket. Bucket policies don't apply to objects owned by other accounts
+ ```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObjectAcl",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::users-processing-serverless/*",
+                "arn:aws:s3:::users-processing-serverless"
+            ]
+        }
+    ]
+}
+```
+
+#### Step 4: Enable static website hosting
+
+1. Sign in to the AWS Management Console and open the Amazon S3 console at https://console.aws.amazon.com/s3/.
+2. In the Buckets list, choose the name of the bucket that you want to enable static website hostingfor.
+3. Choose Properties.
+4. Under Static website hosting, choose Edit.
+5. Choose Use this bucket to host a website.
+6. Under Static website hosting, choose Enable.
+7. In Index document, enter the file name of the index document, typically index.html.
+8. Under Static website hosting, note the Endpoint.
+
