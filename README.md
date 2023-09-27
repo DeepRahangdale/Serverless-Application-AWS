@@ -273,13 +273,12 @@ In this step, you deploy the API that you created to a stage called DEV.
     }
 }
 ```
-2. Verify Data in DynamoDB:
+2. Verify Data in DynamoDB:To ensure that the item is successfully inserted into your DynamoDB table, go to the AWS DynamoDB console
 
-To ensure that the item is successfully inserted into your DynamoDB table, go to the AWS DynamoDB console:
 * Select your table (e.g., "YourTableName").
 * Click on the "Items" tab, and you should see the newly inserted item listed.
 
-![Running Solution](./images/running solution.png)
+![Running Solution](./images/runningsolution.png)
 
 3. Run Your Serverless Full Stack Application:
 
