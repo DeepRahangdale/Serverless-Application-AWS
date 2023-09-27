@@ -223,3 +223,18 @@ Let's test our newly created function. We haven't created DynamoDB and the API y
 ![Execute test event](./images/execute-test.jpg)
 
 We're all set to create DynamoDB table and an API using our lambda as backend!
+
+### Create DynamoDB Table
+
+Create the DynamoDB table that the Lambda function uses.
+
+**To create a DynamoDB table**
+
+1. Open the DynamoDB console.
+2. Choose Create table.
+3. Create a table with the following settings.
+   * Table name – UsersTable
+   * Primary key – id (string)
+4. Choose Create.
+
+![create DynamoDB table](./images/create-dynamo-table.jpg)
