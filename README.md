@@ -200,7 +200,7 @@ We're all set to create DynamoDB table and an API using our lambda as backend!
 
 ### Create DynamoDB Table
 
-Create the DynamoDB table that the Lambda function uses.
+Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale. DynamoDB offers built-in security, continuous backups, automated multi-Region replication, in-memory caching, and data import and export tools.Create the DynamoDB table that the Lambda function uses.
 
 **To create a DynamoDB table**
 
