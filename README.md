@@ -91,3 +91,14 @@ The bucket policy, written in JSON, provides access to the objects stored in the
 }
 ```
 
+#### Step 4: Enable static website hosting
+
+1. Sign in to the AWS Management Console and open the Amazon S3 console at https://console.aws.amazon.com/s3/.
+2. In the Buckets list, choose the name of the bucket that you want to enable static website hostingfor.
+3. Choose Properties.
+4. Under Static website hosting, choose Edit.
+5. Choose Use this bucket to host a website.
+6. Under Static website hosting, choose Enable.
+7. In Index document, enter the file name of the index document, typically index.html.
+8. Under Static website hosting, note the Endpoint.
+
