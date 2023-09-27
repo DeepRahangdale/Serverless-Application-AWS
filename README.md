@@ -259,9 +259,33 @@ In this step, you deploy the API that you created to a stage called DEV.
 ### Running our solution
 
 1. Create and Deploy the AWS Resources:
-Set up your DynamoDB API Gateway and AWS Lambda functions with the necessary code.To add an item to your DynamoDB table, Items with different parameters can be created under "Create Item" Section.
+* Set up your DynamoDB API Gateway and AWS Lambda functions with the necessary code.To add an item to your DynamoDB table, Items with different parameters can be created under "Create Item" Section.
+
+```json
+{
+    "operation": "create",
+    "tableName": "YourTableName",
+    "payload": {
+        "Item": {
+            "id": "YourItemID",
+            "attribute": "AttributeData"
+        }
+    }
+}
+```
+2. Verify Data in DynamoDB:
+
+To ensure that the item is successfully inserted into your DynamoDB table, go to the AWS DynamoDB console:
+* Select your table (e.g., "YourTableName").
+* Click on the "Items" tab, and you should see the newly inserted item listed.
 
 ![Running Solution](./images/running solution.png)
+
+3. Run Your Serverless Full Stack Application:
+
+* Launch your React.js frontend application that interacts with the API you've created. Ensure your frontend is configured to make requests to the correct API endpoints and display data appropriately.
+
+![Output](./images/output.png)
 
 ## Cleanup
 
